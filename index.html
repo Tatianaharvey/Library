@@ -17,10 +17,14 @@
     <div class="side-bar">
         <h1>My Library</h1>
 
-        <div class="book-info">
-            
+        <div class="library-info">
+            <div>
+                <p>BOOKS READ: <span id="books-read"></span></p>
+                <p>BOOKS UNREAD: <span id="books-unread"></span></p>
+                <p>TOTAL BOOKS: <span id="total-books"></span></p>
+            </div>
         </div>
-        
+
         <div>
             <button class="openForm">Add New Book</button>
         </div>
@@ -53,7 +57,7 @@
             <input type="number" id="pages" name="pages" required>
             <input type="checkbox" id="checkbox" name="checkbox" autocomplete="off">
             <label for="checkbox">Read?</label>
-            <input type="button" value="ADD A NEW BOOK" id="add-book">
+            <input type="button" value="ADD A NEW BOOK" id="add-book" class="add-and-close">
         </form>
          <button class="close">Cancel</button>
     </div>
