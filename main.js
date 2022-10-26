@@ -14,6 +14,7 @@ function addBookToLibrary(title, author, pages, status) {
     const book = new Book(title, author, pages, status);
     myLibrary.push(book)
     showBooksInLibrary();
+    // form.reset();
 }
 
 
@@ -60,24 +61,22 @@ function showBooksInLibrary() {
         bookRow.appendChild(bookPages);
 
         const bookStatus = document.createElement('td');
-        const readButton = document.createElement('BUTTON');
-        const readBook = document.createTextNode("read");
-        readButton.appendChild(readBook);
-        const unreadButton = document.createElement('BUTTON');
-        const unreadBook = document.createTextNode("unread");
-        unreadButton.appendChild(unreadBook);  
+        let readButton = document.createElement("button");
+        readButton.innerHTML = "read";
+        let unreadButton = document.createElement("button");
+        unreadButton.innerHTML = "unread";
         if (myLibrary[i].status === false) {
-            unreadButton.appendChild(bookStatus);
+            bookStatus.appendChild(unreadButton);
         } else {
-            readButton.appendChild(bookStatus);
+            bookStatus.appendChild(readButton);
         }
         bookRow.appendChild(bookStatus);
 
         const bookDelete = document.createElement('td');
-        const deleteButton = document.createElement('BUTTON');
-        const removeBook = document.appendTextNode("remove")
-        deleteButton.appendChild(removeBook);
-        bookDelete.appendChild(deleteButton);
+        const removeButton = document.createElement("button");
+        removeButton.innerHTML = "remove";
+        bookDelete.appendChild(removeButton)
+        bookRow.appendChild(bookDelete);
     }
 }
 
@@ -96,7 +95,7 @@ function validateForm(event) {
         } else {
             addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, false);
         }
-        form.reset();
+        // form.reset();
     }
 }
 
@@ -106,7 +105,7 @@ function listenClicks() {
         const tr = target.parentNode.parentNode.rowIndex - 1;
         if (target.id === 'add-book') {
             validateForm(event);
-        } else if (target.id === 'deleteButton') {
+        } else if (target.id === 'removeButton') {
             myLibrary.splice(tr, 1);
         } else if (target.id === 'unreadButton') {
             myLibrary[tr].status = false;
