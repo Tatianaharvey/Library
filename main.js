@@ -47,35 +47,33 @@ function showBooksInLibrary() {
         const bookRow = document.createElement('tr');
         bookRow.classList.add('book-info');
         bookList.appendChild(bookRow);
-
+        
         const bookTitle = document.createElement('td');
         bookTitle.textContent = myLibrary[i].title;
         bookRow.appendChild(bookTitle);
-
+        
         const bookAuthor = document.createElement('td');
         bookAuthor.textContent = myLibrary[i].author;
         bookRow.appendChild(bookAuthor);
-
+        
         const bookPages = document.createElement('td');
         bookPages.textContent = myLibrary[i].pages;
         bookRow.appendChild(bookPages);
 
         const bookStatus = document.createElement('td');
-        let readButton = document.createElement("button");
-        readButton.innerHTML = "read";
-        let unreadButton = document.createElement("button");
-        unreadButton.innerHTML = "unread";
+        const statusSymbol = document.createElement('i');
         if (myLibrary[i].status === false) {
-            bookStatus.appendChild(unreadButton);
-        } else {
-            bookStatus.appendChild(readButton);
-        }
-        bookRow.appendChild(bookStatus);
+            statusSymbol.classList.add('fa-solid', 'fa-xmark');
+          } else {
+            statusSymbol.classList.add('fa-solid', 'fa-check');
+          }
+          bookStatus.appendChild(statusSymbol);
+          bookRow.appendChild(bookStatus);
 
         const bookDelete = document.createElement('td');
-        const removeButton = document.createElement("button");
-        removeButton.innerHTML = "remove";
-        bookDelete.appendChild(removeButton)
+        const deleteSymbol = document.createElement('i');
+        deleteSymbol.classList.add('fa-solid', 'fa-trash');
+        bookDelete.appendChild(deleteSymbol);
         bookRow.appendChild(bookDelete);
     }
 }
@@ -105,15 +103,19 @@ function listenClicks() {
         const tr = target.parentNode.parentNode.rowIndex - 1;
         if (target.id === 'add-book') {
             validateForm(event);
-        } else if (target.id === 'removeButton') {
+        } else if (target.classList.contains('fa-trash')) {
             myLibrary.splice(tr, 1);
-        } else if (target.id === 'unreadButton') {
+        } else if (target.classList.contains('fa-check')) {
+            target.classList.remove('fa-check');
+            target.classList.add('fa-xmark');
             myLibrary[tr].status = false;
-        } else if (target.id === 'readButton') {
+        } else if (target.classList.contains('fa-xmark')) {
+            target.classList.remove('fa-xmark');
+            target.classList.add('fa-check');
             myLibrary[tr].status = true;
         }
         showBooksInLibrary();
-    })
+    });
 }
 
 showBooksInLibrary();
