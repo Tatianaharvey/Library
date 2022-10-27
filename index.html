@@ -15,7 +15,7 @@
 
     <div class="side-bar">
         <div class="title">
-            <i class="fa-solid fa-books"></i>
+            <object data="books.svg" width="100" height="100"></object>
             <h1>My Library</h1>
         </div>
 
@@ -50,14 +50,14 @@
 
 <div class="modal">
     <div class="form-content">
-        <form>
+        <form id="form">
             <legend>New Book Info:</legend>
                 <input type="text" id="title" name="title" placeholder="Title" required>
                 <input type="text" id="author" name="author" placeholder="Author" required>  
                 <input type="number" id="pages" name="pages" required>
                 <input type="checkbox" id="checkbox" name="checkbox" autocomplete="off">
                 <label for="checkbox">Read?</label>
-                <input type="button" value="ADD A NEW BOOK" id="add-book" class="add-new-book">
+                <input type="button" value="Add book" id="add-book" class="add-book">
         </form>
          <button class="close">Cancel</button>
     </div>

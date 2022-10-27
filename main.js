@@ -81,7 +81,7 @@ function showBooksInLibrary() {
 
 function validateForm(event) {
     event.preventDefault();
-    const form = document.querySelector('form');
+    const form = document.querySelector('#form');
     const titleInput = document.querySelector('#title');
     const authorInput = document.querySelector('#author');
     const pagesInput = document.querySelector('#pages');
@@ -93,7 +93,7 @@ function validateForm(event) {
         } else {
             addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, false);
         }
-        // form.reset();
+        form.reset();
     }
 }
 
@@ -103,6 +103,7 @@ function listenClicks() {
         const tr = target.parentNode.parentNode.rowIndex - 1;
         if (target.id === 'add-book') {
             validateForm(event);
+            form.reset();
         } else if (target.classList.contains('fa-trash')) {
             myLibrary.splice(tr, 1);
         } else if (target.classList.contains('fa-check')) {
@@ -129,7 +130,7 @@ listenClicks();
 const modal = document.querySelector(".modal");
 const openForm = document.querySelector(".openForm");
 const closeButton = document.querySelector(".close");
-const addAndClose = document.querySelector('.add-and-close')
+const addAndClose = document.querySelector('.add-book')
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
@@ -144,3 +145,4 @@ function windowOnClick(event) {
 openForm.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+addAndClose.addEventListener("click", toggleModal);
