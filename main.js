@@ -14,7 +14,6 @@ function addBookToLibrary(title, author, pages, status) {
     const book = new Book(title, author, pages, status);
     myLibrary.push(book)
     showBooksInLibrary();
-    // form.reset();
 }
 
 
@@ -86,7 +85,7 @@ function validateForm(event) {
     const authorInput = document.querySelector('#author');
     const pagesInput = document.querySelector('#pages');
     const statusInput = document.querySelector('input[name="checkbox"]');
-    
+   
     if (titleInput.value !== '' && authorInput.value !== '' && pagesInput.value >= 0) {
         if(checkbox.checked) {
             addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, true);

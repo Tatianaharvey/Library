@@ -30,13 +30,13 @@ html {
     background-size: cover;
 }
 
-.title {
+.my-library {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
 
-.title h1 {
+.my-library h1 {
     color: white;
     font-family: monaco, arial, sans-serif;
 }
