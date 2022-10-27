@@ -144,4 +144,3 @@ function windowOnClick(event) {
 openForm.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-addAndClose.addEventListener("click", toggleModal);

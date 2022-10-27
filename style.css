@@ -125,10 +125,13 @@ thead {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 1rem 1.5rem;
-    width: 24rem;
+    background-image: linear-gradient(#5f9595, #c3d8d1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem;
+    width: 26rem;
     border-radius: 0.5rem;
+    position: relative;
 }
 
 .show-modal {
@@ -136,5 +139,18 @@ thead {
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.close,
+.add-new-book {
+    border: none; 
+    background-color: #f0bc68;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.close:hover {
+    background-color: hsl(37, 58%, 49%);
+    cursor: pointer;
 }
 
