@@ -138,9 +138,8 @@ thead {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 2rem;
-    width: 26rem;
+    width: 15rem;
     border-radius: 0.5rem;
-    position: relative;
 }
 
 .show-modal {
@@ -164,3 +163,20 @@ thead {
     cursor: pointer;
 }
 
+.required {
+    font-size: smaller;
+    color: rgb(126, 0, 0);
+}
+
+.inputText p {
+    font-size: smaller;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+}

@@ -52,12 +52,26 @@
     <div class="form-content">
         <form id="form">
             <legend>New Book Info:</legend>
-                <input type="text" id="title" name="title" placeholder="Title" required>
-                <input type="text" id="author" name="author" placeholder="Author" required>  
-                <input type="number" id="pages" name="pages" required>
+            <p class="required">* required</p>
+                <div class="inputText">
+                    <p>*Book Title</p>
+                    <input type="text" id="title" name="title" placeholder="Title" required>
+                </div>
+                <div class="inputText">
+                    <p>*Book Author</p>
+                    <input type="text" id="author" name="author" placeholder="Author" required>  
+                </div>
+                <div class="inputText">
+                    <p>Pages</p>
+                    <input type="number" id="pages" name="pages" placeholder="0" required>
+                </div>
+                <div class="inputText">
                 <input type="checkbox" id="checkbox" name="checkbox" autocomplete="off">
                 <label for="checkbox">Read?</label>
+                </div>
+                
                 <input type="button" value="Add book" id="add-book" class="add-book">
+              
         </form>
          <button class="close">Cancel</button>
     </div>
