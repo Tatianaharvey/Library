@@ -1,14 +1,14 @@
-📝 Description
-Vanilla JS Library project I made from the Odin Project Curriculum.
+📝 Description:
+ Vanilla JS Library project I made from the Odin Project Curriculum.
 
-💡 Features
-Form as a popup modal
-Add books to a library list.
-Stats of books read, books unread, and total books.
-Remove books from book list
-Change books to read or unread on list. 
+💡 Features:
+- Popup form to add books
+- Books are added to a library list.
+- Stats shown of books read, books unread, and total books.
+- Remove books from library list
+- Change books to read or unread on list. 
 
-🛠️ Built with
+🛠️ Built with:
 - HTML
 - CSS
 - JavaScript
