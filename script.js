@@ -144,4 +144,18 @@ function windowOnClick(event) {
 openForm.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-addAndClose.addEventListener("click", toggleModal);
+// addAndClose.addEventListener("click", toggleModal);
+
+
+const inputText = document.querySelector("input");
+
+inputText.addEventListener("input", () => {
+    inputText.setCustomValidity("");
+    inputText.checkValidity();
+});
+
+inputText.addEventListener("invalid", () => {
+    if (inputText.value === "") {
+        inputText.setCustomValidity("Please fill in the required fields");
+    } 
+});
