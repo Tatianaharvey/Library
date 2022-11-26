@@ -15,7 +15,7 @@
 
     <div class="side-bar">
         <div class="my-library">
-            <object data="books.svg" width="100" height="100"></object>
+            <i class="fa-duotone fa-books"></i>
             <h1>My Library</h1>
         </div>
 
@@ -25,9 +25,39 @@
             <p>TOTAL BOOKS: <span id="total-books"></span></p>
         </div>
 
-        <div>
-            <button class="openForm">Add New Book</button>
-        </div>
+        
+        <form class="form">
+            <legend>ADD A NEW BOOK:</legend>
+           
+                <div class="form-field">
+                    <input type="text" id="title" name="title" required>
+                    <span class="placeholder">Book title</span>
+                    <small class="validation title">Please fill out this field.</small>
+                </div>
+                <div class="form-field">
+                    <input type="text" id="author" name="author" required> 
+                    <span class="placeholder">Book author</span>
+                    <small class="validation author">Please fill out this field.</small>
+                </div>
+                <div class="form-field">
+                    <input type="number" id="pages" name="pages" required>
+                    <span class="placeholder"># of pages in book</span>
+                    <small class="validation pages">Please choose a number greater than 0.</small>
+                </div>
+                <div class="checkbox-field">
+                    <span class="checkbox-input">
+                        <input type="checkbox" id="checkbox" name="checkbox" autocomplete="off">
+                        <span class="checkbox-read">I have read this book!</span>
+                    </span>
+                </div>
+                
+               
+                <input type="submit" value="Add Book" class="add-book" id="addBook">
+                
+        </form>
+        
+
+
     </div>
 
 <main>
@@ -47,35 +77,6 @@
       </table>
 </main>
   
-
-<div class="modal">
-    <div class="form-content">
-        <form id="form">
-            <legend>New Book Info:</legend>
-            <p class="required">* required</p>
-                <div class="inputText">
-                    <p>*Book Title</p>
-                    <input type="text" id="title" name="title" placeholder="Title" required>
-                </div>
-                <div class="inputText">
-                    <p>*Book Author</p>
-                    <input type="text" id="author" name="author" placeholder="Author" required>  
-                </div>
-                <div class="inputText">
-                    <p>Pages</p>
-                    <input type="number" id="pages" name="pages" placeholder="0" required>
-                </div>
-                <div class="inputText">
-                <input type="checkbox" id="checkbox" name="checkbox" autocomplete="off">
-                <label for="checkbox">Read?</label>
-                </div>
-                
-                <input type="button" value="Add book" id="add-book" class="add-book">
-              
-        </form>
-         <button class="close">Cancel</button>
-    </div>
-</div>
 
 
 </div>

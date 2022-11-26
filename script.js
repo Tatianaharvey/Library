@@ -78,31 +78,51 @@ function showBooksInLibrary() {
 }
 
 
+
+
+
 function validateForm(event) {
     event.preventDefault();
-    const form = document.querySelector('#form');
+    const form = document.querySelector('form');
     const titleInput = document.querySelector('#title');
+    const titleErr = document.querySelector('.title');
     const authorInput = document.querySelector('#author');
+    const authorErr = document.querySelector('.author');
     const pagesInput = document.querySelector('#pages');
-    const statusInput = document.querySelector('input[name="checkbox"]');
-   
-    if (titleInput.value !== '' && authorInput.value !== '' && pagesInput.value >= 0) {
-        if(checkbox.checked) {
-            addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, true);
-        } else {
-            addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, false);
-        }
-        form.reset();
+    const pagesErr = document.querySelector('.pages');
+    const checkbox = document.querySelector('input[name="checkbox"]');
+    if (titleInput.value === '') {
+      titleErr.style.display = 'block';
+    } else {
+      titleErr.style.display = 'none';
     }
-}
+    if (authorInput.value === '') {
+      authorErr.style.display = 'block';
+    } else {
+      authorErr.style.display = 'none';
+    }
+    if (pagesInput.value === '' || pagesInput.value.match(/[^1-9]/) || pagesInput.value <= 0) {
+      pagesErr.style.display = 'block';
+    } else {
+      pagesErr.style.display = 'none';
+    }
+    if (titleInput.value !== '' && authorInput.value !== '' && pagesInput.value !== '' && pagesInput.value > 0) {
+      if (checkbox.checked) {
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, true);
+      } else {
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, false);
+      }
+      form.reset();
+    }
+  }
+  
 
 function listenClicks() {
     document.addEventListener('click', (event) => {
         const { target } = event;
         const tr = target.parentNode.parentNode.rowIndex - 1;
-        if (target.id === 'add-book') {
+        if (target.id === 'addBook') {
             validateForm(event);
-            form.reset();
         } else if (target.classList.contains('fa-trash')) {
             myLibrary.splice(tr, 1);
         } else if (target.classList.contains('fa-check')) {
@@ -123,39 +143,3 @@ listenClicks();
 
 
 
-
-// Popup form 
-
-const modal = document.querySelector(".modal");
-const openForm = document.querySelector(".openForm");
-const closeButton = document.querySelector(".close");
-const addAndClose = document.querySelector('.add-book')
-
-function toggleModal() {
-    modal.classList.toggle("show-modal");
-}
-
-function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
-}
-
-openForm.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
-// addAndClose.addEventListener("click", toggleModal);
-
-
-const inputText = document.querySelector("input");
-
-inputText.addEventListener("input", () => {
-    inputText.setCustomValidity("");
-    inputText.checkValidity();
-});
-
-inputText.addEventListener("invalid", () => {
-    if (inputText.value === "") {
-        inputText.setCustomValidity("Please fill in the required fields");
-    } 
-});

@@ -7,59 +7,124 @@
 
 html {
     height: 100%;
-    background-image: linear-gradient(#c3d8d1, white);
 }
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 4fr;
     min-height: 100vh;
+    background-color: #f8f3ef;
 }
 
 .side-bar {
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-shadow: 0 0 15px 2px #DDD;
     padding-top: 40px;
     padding-right: 2rem;
     padding-left: 2rem;
     gap: 2rem;
-    background-image: linear-gradient(#5f9595, #c3d8d1);
+    background-image: linear-gradient(to right, #EFC5b9, #f2ded7);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.my-library {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
+
 
 .my-library h1 {
-    color: white;
+    color: #6f8e88;
     font-family: monaco, arial, sans-serif;
 }
+/* .fa-duotone {
+    color: black;
+}
+.fa-books {
+    color: #f8f3ef;
+} */
 
 
 .library-info {
-    border-radius: 0.5rem;
-    background-image: linear-gradient(to right, #ffb5a3, #f5d1c3);
+    border-bottom: solid #6f8e88;
+    border-top: solid #6f8e88;
+    padding: 1rem 1.5rem;
+    font-size: small;
+}
+
+legend {
+    font-family: monaco, arial, sans-serif;
+    color: #6f8e88;
+    font-size: 1.25rem;
+    padding-top: 1.5rem;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.form {
+    gap: 2rem;
+}
+
+#title,
+#author,
+#pages {
+    width: 100%;
+    padding: 15px 0 5px 0;
+    background-image: linear-gradient(to right, #EFC5b9, #f2ded7);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 2rem 2.5rem;
+    border: none;
+    border-bottom: 2px dotted #dbcfc3;
 }
 
-.openForm {
+
+.form-field {
+    position: relative;
+}
+
+.form-field span.placeholder {
+    position: absolute;
+    margin: 17px 0;
+    left: 0;
+    transition: all 0.3s;
+    transform-origin: 0% 0%;
+    pointer-events: none;
+    color: grey;
+}
+
+.form-field input:valid + span.placeholder,
+.form-field input:focus + span.placeholder {
+    transform: scale(0.8) translateY(-30px);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+.validation {
+    display: none;
+    color: #dc3545;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+
+
+.add-book {
     border: none; 
-    background-color: #f0bc68;
-    padding: 0.7rem 1rem;
+    background-color: #6f8e88;
+    color:#f8f3ef;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
-    
 }
 
-.openForm:hover {
-    background-color: hsl(37, 58%, 49%);
+.add-book:hover {
+    background-color: #51726c;
     cursor: pointer;
 }
 
@@ -87,13 +152,13 @@ main {
 
 thead {
     padding: 20px;
-    background-color: #ffb5a3;
-    color: white;
+    background-color: #6f8e88;
+    color: #f8f3ef;
 }
 
 .book-info {
  padding: 5px;
- border-bottom: 2px dotted #f0bc68;
+ border-bottom: 2px dotted #dbcfc3;
  color: #5f9595;
 }
 
@@ -116,67 +181,3 @@ thead {
 
 
 
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-}
-
-.form-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: linear-gradient(#5f9595, #c3d8d1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 2rem;
-    width: 15rem;
-    border-radius: 0.5rem;
-}
-
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
-
-.close,
-.add-book {
-    border: none; 
-    background-color: #f0bc68;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-}
-
-.close:hover,
-.add-book:hover {
-    background-color: hsl(37, 58%, 49%);
-    cursor: pointer;
-}
-
-.required {
-    font-size: smaller;
-    color: rgb(126, 0, 0);
-}
-
-.inputText p {
-    font-size: smaller;
-}
-
-#form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0.7rem;
-    margin-bottom: 0.7rem;
-}
